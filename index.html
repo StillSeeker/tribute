@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mam Saima Umer - World's Best tutor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Great+Vibes&family=Playfair+Display:wght@900&display=swap" rel="stylesheet">
+    <style>
+        /* CSS */
+        :root {
+            --gold: #FFD700;
+            --royal-purple: #7851A9;
+        }
+
+        body {
+            margin: 0;
+            background: radial-gradient(circle at center, #fff0f5, #ffe4e1);
+            font-family: 'Playfair Display', serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        .crown-container {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            text-align: center;
+            z-index: 1;
+        }
+
+        .crown {
+            font-size: 4em;
+            color: var(--gold);
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
+            animation: crown-shine 2s infinite alternate;
+        }
+
+        .main-content {
+            position: relative;
+            max-width: 1200px;
+            margin: 100px auto 50px;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 0 50px rgba(0,0,0,0.1);
+        }
+
+        .photo-shrine {
+            position: relative;
+            width: 350px;
+            height: 350px;
+            margin: 0 auto;
+            border: 15px solid var(--gold);
+            border-radius: 50%;
+            padding: 10px;
+            background: linear-gradient(45deg, var(--royal-purple), #4B0082);
+            box-shadow: 0 0 40px rgba(0,0,0,0.2);
+        }
+
+        .mom-photo {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .message-box {
+            background: linen;
+            padding: 40px;
+            margin: 40px 0;
+            border-left: 15px solid var(--royal-purple);
+            position: relative;
+            transform: rotate(-1deg);
+        }
+
+        .message-text {
+            font-size: 1.8em;
+            color: #5A2C02;
+            line-height: 1.8;
+            font-family: 'Dancing Script', cursive;
+        }
+
+        .floating-flowers {
+            position: fixed;
+            pointer-events: none;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+
+        @keyframes crown-shine {
+            from { opacity: 0.8; }
+            to { opacity: 1; }
+        }
+
+        @media (max-width: 768px) {
+            .photo-shrine {
+                width: 250px;
+                height: 250px;
+            }
+            .message-text {
+                font-size: 1.4em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <audio id="background-music" autoplay loop>
+        <source src="https://assets.mixkit.co/music/preview/mixkit-a-mothers-love-208.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="crown-container">
+        <div class="crown">👑</div>
+    </div>
+
+    <div class="main-content">
+        <div class="photo-shrine">
+            <img src="saima_umer.jpg" alt="Queen Saima Umer" class="mom-photo">
+        </div>
+
+        <h1 style="text-align:center; font-size: 3em; color: var(--royal-purple);">
+            To My Dearest Mentor, Guide, and Mother,<br> Mam Saima Umer
+        </h1>
+
+        <div class="message-box">
+            <p class="message-text">
+                Dearest Mom,<br>
+                In English we simply say "Mom",<br> 
+                But to me, You are much more -<br>
+                A tutor ,A Friend, A guiding light,<br>
+                The wisdom that helps my dreams take flight.<br><br> 
+                
+                You understand me when words fall short,<br>
+                Lift me up with endless support.<br>
+                When I stumble, You make me strong,<br>
+                Turning doubts into hope lifelong.<br>
+                
+                You don’t just teach; you inspire my soul,<br>
+                Filling my journey, making me whole.<br>
+                A protector, a beacon, forever so kind,<br>
+                A mother, a teacher, my greatest find.<br><br>
+
+                The universe wrote its finest verse<br>
+                 When it made you my tutor first.<br>
+               
+                
+            </p>
+        </div>
+    </div>
+
+    <div class="floating-flowers"></div>
+
+    <script>
+        // JavaScript
+        document.addEventListener('DOMContentLoaded', () => {
+            // Auto-play music with interaction
+            const music = document.getElementById('background-music');
+            const playMusic = () => music.play().catch(() => {});
+            document.addEventListener('click', playMusic, { once: true });
+            document.addEventListener('touchstart', playMusic, { once: true });
+
+            // Create floating flowers
+            const flowers = ['🌸', '🌺', '🌷', '💐', '🥀'];
+            function createFlower() {
+                const flower = document.createElement('div');
+                flower.innerHTML = flowers[Math.floor(Math.random() * flowers.length)];
+                flower.style.position = 'fixed';
+                flower.style.left = Math.random() * 100 + '%';
+                flower.style.animation = `float ${8 + Math.random() * 8}s linear infinite`;
+                flower.style.fontSize = Math.random() * 30 + 20 + 'px';
+                flower.style.opacity = 0.7;
+                document.querySelector('.floating-flowers').appendChild(flower);
+                
+                setTimeout(() => flower.remove(), 15000);
+            }
+            setInterval(createFlower, 1000);
+
+            // Photo interaction
+            const photo = document.querySelector('.mom-photo');
+            photo.addEventListener('mouseover', () => {
+                photo.style.transform = 'rotate(360deg) scale(1.05)';
+            });
+            photo.addEventListener('mouseout', () => {
+                photo.style.transform = 'rotate(0) scale(1)';
+            });
+        });
+
+        // Add floating animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes float {
+                0% { transform: translateY(100vh) rotate(0deg); }
+                100% { transform: translateY(-100vh) rotate(360deg); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
